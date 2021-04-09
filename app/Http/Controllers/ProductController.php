@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormAddRequest;
 use App\Http\Services\ProductService;
 use App\Models\Category;
 use App\Models\Product;
@@ -30,7 +31,7 @@ class ProductController extends Controller
         return view('products.add', compact('product', 'categories'));
     }
 
-    function store(Request $request)
+    function store(FormAddRequest $request)
     {
         $this->productService->store($request);
 
